@@ -45,8 +45,20 @@ def nextRound(player1, player2)
     puts "----NEXT ROUND----"
   elsif player1.playerWon? || player2.playerLost?
     puts "Game over. Player 1 wins with a score of #{player1.wins}/3"
-  elsif player2.playerWon? || player2.playerLost?
+  elsif player2.playerWon? || player1.playerLost?
     puts "Game over. Player 2 wins with a score of #{player2.wins}/3"
   end
 end 
+
+def mathQuestion?
+  number1 = randomNumber
+  number2 = randomNumber
+  correct_answer = number1 + number2
+  puts "What's #{number1} plus #{number2}?"
+  return gets.chomp.to_i == correct_answer
+end
+
+def randomNumber
+  rand(1..20).round
+end
 
