@@ -31,13 +31,13 @@ class Player
     "P#{@id}: #{@wins}/3"
   end
 
-  def questionCorrect?(answer, correct_answer)
+  def questionCorrect?(answer, correct_answer, id)
     if answer == correct_answer
       @wins += 1
-      "Player #{@id}: YES! That's correct"
+      "Player #{id}: YES! That's correct"
     else
       @lives -= 1
-      "Player #{@id}: Seriously? No!"
+      "Player #{id}: Seriously? No!"
     end
   end
 end

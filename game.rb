@@ -4,10 +4,10 @@ def mathQuestion
 
   correct_answer = number1 + number2
   
-  [number1, number2, correct_answer] 
+  return [number1, number2, correct_answer] 
 end
 
-def playGame(player1, player2, mathQuestion)
+def playGame(player1, player2)
   round = 0
 
   puts "---- NEW GAME STARTING NOW ----"
@@ -30,7 +30,7 @@ def playGame(player1, player2, mathQuestion)
     puts "Player #{ask_id}: What's #{question_details[0]} plus #{question_details[1]}?"
     answer = gets.chomp.to_i
 
-    puts response.questionCorrect?(answer, question_details[2])
+    puts response.questionCorrect?(answer, question_details[2], ask_id)
 
     puts "#{player1.calculateScore} v #{player2.calculateScore}"
   end
@@ -40,8 +40,6 @@ def playGame(player1, player2, mathQuestion)
   elsif player2.playerWon?
     puts "Game over. Player 2 wins with a score of #{player2.wins}/3"
   else
-    puts "Game over. It's a tie!"
+    puts "Game over :("
   end
 end
-
-playGame(player1, player2, method(:mathQuestion))
